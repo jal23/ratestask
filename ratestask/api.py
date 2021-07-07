@@ -3,7 +3,7 @@ from flask import (
     current_app as app,
     jsonify,
 )
-from validator import validate_rates_inputs
+from ratestask.validator import validate_rates_inputs
 
 
 api = Blueprint("api", __name__)
