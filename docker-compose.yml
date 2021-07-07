@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+    web:
+        build: .
+        depends_on:
+            - postgres
+        environment:
+            DATABASE_URI: postgresql://postgres:ratestask@postgres/ratestask
+        ports:
+            - 80:80
+
+    postgres:
+        build:
+            dockerfile: ./Dockerfile
+            context: ./postgres
+        environment:
+            POSTGRES_DB: ratestask
+            POSTGRES_PASSWORD: ratestask
+        ports:
+            - 5432:5432
