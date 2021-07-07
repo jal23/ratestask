@@ -4,4 +4,5 @@ ADD . /app
 WORKDIR /app
 
 RUN pip install -r requirements.txt
+ENV PYTHONPATH "${PYTHONPATH}:$(pwd)"
 CMD python ratestask/app.py

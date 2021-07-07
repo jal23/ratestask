@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+    test:
+        image: python:3.8-slim-buster
+        volumes:
+            - ./:/app
+        environment:
+            DATABASE_URI: postgresql://postgres:testratestask@test_postgres/testratestask
+        command:
+            - "sh"
+            - "-c"
+            - "pip install -r /app/requirements.txt && pytest /app/tests"
+        depends_on:
+            - test_postgres
+
+    test_postgres:
+        image: postgres:12
+        environment:
+            POSTGRES_DB: testratestask
+            POSTGRES_PASSWORD: testratestask
+        ports:
+            - 5433:5433
