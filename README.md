@@ -50,6 +50,9 @@ That's it. The app should be accessible via port 80, Postgres DB via port 5432.
 2. Install Dependencies:
 
         $ pip install -r requirements.txt
-3. Run tests:
+4. Set DB Env var:
+
+        $ export DATABASE_URI=postgresql://postgres:ratestask@postgres/testdb
+5. Run tests:
 
         $ pytest tests/
